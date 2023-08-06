@@ -29,10 +29,10 @@ def get_input():
     try:
         n = int(sys.argv[1])
     except Exception:
-        print("N must be a number")
+        print("N must bea number")
         sys.exit(1)
     if n < 4:
-        print("N must be at least 4")
+        print("N must be at least4")
         sys.exit(1)
     return n
 
@@ -93,6 +93,7 @@ def build_solution(row, group):
             used_positions = map(lambda x: is_attacking(x[0], x[1]), matches)
             group.append(pos[a].copy())
             if not any(used_positions):
+                
                 build_solution(row + 1, group)
             group.pop(len(group) - 1)
 
@@ -105,7 +106,6 @@ def get_solutions():
     a = 0
     group = []
     build_solution(a, group)
-
 
 n = get_input()
 get_solutions()
